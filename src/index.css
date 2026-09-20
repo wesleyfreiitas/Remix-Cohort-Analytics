@@ -1,0 +1,219 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Cohort Analytics Design System - Cyan/Teal Dark Theme */
+
+@layer base {
+  :root {
+    /* Primary Cyan/Teal palette */
+    --background: 222 47% 5%;
+    --foreground: 210 40% 98%;
+
+    --card: 220 30% 8%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 220 30% 8%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 187 85% 53%;
+    --primary-foreground: 222 47% 5%;
+
+    --secondary: 168 76% 42%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 220 20% 15%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 175 70% 40%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 20% 20%;
+    --input: 220 20% 18%;
+    --ring: 187 85% 53%;
+
+    --radius: 0.75rem;
+
+    /* Sidebar styling */
+    --sidebar-background: 222 47% 4%;
+    --sidebar-foreground: 210 40% 85%;
+    --sidebar-primary: 187 85% 53%;
+    --sidebar-primary-foreground: 222 47% 5%;
+    --sidebar-accent: 220 20% 12%;
+    --sidebar-accent-foreground: 187 85% 53%;
+    --sidebar-border: 220 20% 15%;
+    --sidebar-ring: 187 85% 53%;
+
+    /* Custom gradients and effects */
+    --gradient-cyan: linear-gradient(135deg, hsl(187, 85%, 53%), hsl(168, 76%, 42%));
+    --gradient-background: linear-gradient(to bottom right, hsl(222, 47%, 4%), hsl(222, 40%, 6%), hsl(0, 0%, 0%));
+    --glow-cyan: 0 0 30px hsla(187, 85%, 53%, 0.3);
+    --glow-teal: 0 0 30px hsla(168, 76%, 42%, 0.3);
+  }
+
+  .dark {
+    --background: 222 47% 5%;
+    --foreground: 210 40% 98%;
+
+    --card: 220 30% 8%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 220 30% 8%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 187 85% 53%;
+    --primary-foreground: 222 47% 5%;
+
+    --secondary: 168 76% 42%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 220 20% 15%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 175 70% 40%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 20% 20%;
+    --input: 220 20% 18%;
+    --ring: 187 85% 53%;
+
+    --sidebar-background: 222 47% 4%;
+    --sidebar-foreground: 210 40% 85%;
+    --sidebar-primary: 187 85% 53%;
+    --sidebar-primary-foreground: 222 47% 5%;
+    --sidebar-accent: 220 20% 12%;
+    --sidebar-accent-foreground: 187 85% 53%;
+    --sidebar-border: 220 20% 15%;
+    --sidebar-ring: 187 85% 53%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    background: linear-gradient(to bottom right, hsl(222, 47%, 4%), hsl(222, 40%, 6%), hsl(0, 0%, 0%));
+    min-height: 100vh;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Glassmorphism card style */
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-xl border-2 border-border/50 rounded-3xl shadow-2xl;
+  }
+
+  /* Primary gradient button */
+  .btn-gradient {
+    @apply rounded-xl bg-gradient-to-r from-primary to-secondary text-primary-foreground font-semibold 
+           transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98];
+    box-shadow: 0 4px 20px hsla(187, 85%, 53%, 0.3);
+  }
+
+  .btn-gradient:hover {
+    box-shadow: 0 6px 30px hsla(187, 85%, 53%, 0.4);
+  }
+
+  /* Glowing input */
+  .input-glow {
+    @apply rounded-xl border-2 border-border bg-input/50 text-foreground 
+           transition-all duration-300 focus:border-primary focus:ring-2 focus:ring-primary/20;
+  }
+
+  /* Floating orbs animation */
+  .orb {
+    @apply absolute rounded-full blur-3xl opacity-20 animate-pulse;
+  }
+
+  .orb-cyan {
+    background: radial-gradient(circle, hsl(187, 85%, 53%) 0%, transparent 70%);
+  }
+
+  .orb-teal {
+    background: radial-gradient(circle, hsl(168, 76%, 42%) 0%, transparent 70%);
+  }
+
+  /* Tech grid pattern */
+  .tech-grid {
+    background-image: 
+      linear-gradient(to right, hsla(187, 85%, 53%, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, hsla(187, 85%, 53%, 0.05) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  /* Tech grid pattern 50px - for AnimatedBackground */
+  .tech-grid-50 {
+    background-image: 
+      linear-gradient(to right, hsla(187, 85%, 53%, 0.1) 1px, transparent 1px),
+      linear-gradient(to bottom, hsla(187, 85%, 53%, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  /* Sidebar navigation item */
+  .nav-item {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl text-sidebar-foreground 
+           transition-all duration-200 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground;
+  }
+
+  .nav-item.active {
+    @apply bg-sidebar-accent text-primary font-medium;
+  }
+
+  /* Metric card hover effect */
+  .metric-card {
+    @apply glass-card p-6 transition-all duration-300 hover:border-primary/50 hover:shadow-lg;
+  }
+
+  .metric-card:hover {
+    box-shadow: 0 10px 40px hsla(187, 85%, 53%, 0.15);
+  }
+}
+
+@layer utilities {
+  /* Custom scrollbar */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+    border-radius: 3px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary) / 0.5);
+    border-radius: 3px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.7);
+  }
+
+  /* Text gradient */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+  }
+
+  /* Glow effects */
+  .glow-cyan {
+    box-shadow: var(--glow-cyan);
+  }
+
+  .glow-teal {
+    box-shadow: var(--glow-teal);
+  }
+}
